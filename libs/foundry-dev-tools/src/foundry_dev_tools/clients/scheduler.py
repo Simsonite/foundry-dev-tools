@@ -7,10 +7,10 @@ from typing import TYPE_CHECKING
 from foundry_dev_tools.clients.api_client import APIClient
 from foundry_dev_tools.errors.compass import ResourceNotFoundError
 from foundry_dev_tools.errors.handling import ErrorHandlingConfig
-from foundry_dev_tools.utils import api_types
 
 if TYPE_CHECKING:
     import requests
+    from foundry_dev_tools.utils import api_types
 
 
 class SchedulerClient(APIClient):
