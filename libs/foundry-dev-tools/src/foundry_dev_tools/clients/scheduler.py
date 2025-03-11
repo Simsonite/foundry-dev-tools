@@ -21,7 +21,7 @@ class SchedulerClient(APIClient):
     def get_schedules_by_run_build(
             self,
             rid: api_types.Rid,
-            branch: api_types.DatasetBranch,
+            branch: api_types.DatasetBranch = "master",
             **kwargs
     ) -> requests.Response:
         """Gets the schedules of the resource dataset.
