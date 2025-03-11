@@ -19,7 +19,7 @@ from foundry_dev_tools.clients import (
     public_ontologies_client,
     s3_client,
     scheduler,
-    schema_inference
+    schema_inference,
 )
 from foundry_dev_tools.config.config import Config, get_config_dict, parse_credentials_config, parse_general_config
 from foundry_dev_tools.helpers.multipass import Group, User
@@ -43,10 +43,10 @@ class FoundryContext:
     client: context_client.ContextHTTPClient
 
     def __init__(
-            self,
-            config: Config | None = None,
-            token_provider: TokenProvider | None = None,
-            profile: str | None = None,
+        self,
+        config: Config | None = None,
+        token_provider: TokenProvider | None = None,
+        profile: str | None = None,
     ) -> None:
         if config is None or token_provider is None:
             config_dict = get_config_dict(profile)
@@ -157,15 +157,15 @@ class FoundryContext:
         return FoundryRestClient(ctx=self)
 
     def get_dataset(
-            self,
-            rid: api_types.Rid,
-            /,
-            *,
-            branch: api_types.Ref = "master",
-            create_branch_if_not_exists: bool = True,
-            parent_ref: api_types.TransactionRid | None = None,
-            parent_branch_id: api_types.DatasetBranch | None = None,
-            **kwargs,
+        self,
+        rid: api_types.Rid,
+        /,
+        *,
+        branch: api_types.Ref = "master",
+        create_branch_if_not_exists: bool = True,
+        parent_ref: api_types.TransactionRid | None = None,
+        parent_branch_id: api_types.DatasetBranch | None = None,
+        **kwargs,
     ) -> Dataset:
         """Returns dataset at path.
 
@@ -190,16 +190,16 @@ class FoundryContext:
         )
 
     def get_dataset_by_path(
-            self,
-            path: api_types.FoundryPath,
-            /,
-            *,
-            branch: api_types.Ref = "master",
-            create_if_not_exist: bool = False,
-            create_branch_if_not_exists: bool = True,
-            parent_ref: api_types.TransactionRid | None = None,
-            parent_branch_id: api_types.DatasetBranch | None = None,
-            **kwargs,
+        self,
+        path: api_types.FoundryPath,
+        /,
+        *,
+        branch: api_types.Ref = "master",
+        create_if_not_exist: bool = False,
+        create_branch_if_not_exists: bool = True,
+        parent_ref: api_types.TransactionRid | None = None,
+        parent_branch_id: api_types.DatasetBranch | None = None,
+        **kwargs,
     ) -> Dataset:
         """Returns dataset at path.
 
@@ -227,11 +227,11 @@ class FoundryContext:
         )
 
     def get_resource(
-            self,
-            rid: api_types.Rid,
-            /,
-            *,
-            decoration: api_types.ResourceDecorationSetAll | None = None,
+        self,
+        rid: api_types.Rid,
+        /,
+        *,
+        decoration: api_types.ResourceDecorationSetAll | None = None,
     ) -> Resource:
         """Returns resource from rid.
 
@@ -243,11 +243,11 @@ class FoundryContext:
         return Resource.from_rid(self, rid, decoration=decoration)
 
     def get_resource_by_path(
-            self,
-            path: api_types.FoundryPath,
-            /,
-            *,
-            decoration: api_types.ResourceDecorationSetAll | None = None,
+        self,
+        path: api_types.FoundryPath,
+        /,
+        *,
+        decoration: api_types.ResourceDecorationSetAll | None = None,
     ) -> Resource:
         """Returns resource from path.
 
@@ -263,12 +263,12 @@ class FoundryContext:
         return User.me(self)
 
     def create_group(
-            self,
-            name: str,
-            organization_rids: set[api_types.OrganizationRid],
-            /,
-            *,
-            description: str | None = None,
+        self,
+        name: str,
+        organization_rids: set[api_types.OrganizationRid],
+        /,
+        *,
+        description: str | None = None,
     ) -> Group:
         """Create new multipass group.
 
@@ -281,13 +281,13 @@ class FoundryContext:
 
     def __repr__(self) -> str:
         return (
-                "<"
-                + self.__class__.__name__
-                + "(config="
-                + self.config.__str__()
-                + ", token_provider="
-                + self.token_provider.__str__()
-                + ")>"
+            "<"
+            + self.__class__.__name__
+            + "(config="
+            + self.config.__str__()
+            + ", token_provider="
+            + self.token_provider.__str__()
+            + ")>"
         )
 
 
