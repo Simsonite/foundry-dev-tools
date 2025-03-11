@@ -1,6 +1,9 @@
+"""Implementation of the scheduler API."""
+
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
+
 from foundry_dev_tools.clients.api_client import APIClient
 from foundry_dev_tools.errors.compass import ResourceNotFoundError
 from foundry_dev_tools.errors.handling import ErrorHandlingConfig
