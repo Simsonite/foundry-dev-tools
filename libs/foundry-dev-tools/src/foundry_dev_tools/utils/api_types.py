@@ -166,6 +166,9 @@ TokenType = Literal["USER_GENERATED"]
 UserId = str
 """An identifier for an user on foundry."""
 
+PrincipleTypes = Literal["USER", "GROUP"]
+"""A type for a principle on foundry."""
+
 
 class Attribution(TypedDict):
     """User and timestamp for resource creation."""
