@@ -14,11 +14,14 @@ from foundry_dev_tools.clients import (
     foundry_sql_server,
     foundry_stats,
     jemma,
+    magritte_coordinator,
     metadata,
     multipass,
     public_ontologies_client,
     s3_client,
+    scheduler,
     schema_inference,
+    tables,
 )
 from foundry_dev_tools.config.config import Config, get_config_dict, parse_credentials_config, parse_general_config
 from foundry_dev_tools.helpers.multipass import Group, User
@@ -84,6 +87,21 @@ class FoundryContext:
     def jemma(self) -> jemma.JemmaClient:
         """Returns :py:class:`foundry_dev_tools.clients.jemma.JemmaClient`."""
         return jemma.JemmaClient(self)
+
+    @cached_property
+    def tables(self) -> tables.TablesClient:
+        """Returns :py:class:`foundry_dev_tools.clients.tables.TablesClient`."""
+        return tables.TablesClient(self)
+
+    @cached_property
+    def magritte_coordinator(self) -> magritte_coordinator.MagritteCoordinatorClient:
+        """Returns :py:class:`foundry_dev_tools.clients.magritte_coordinator.MagritteCoordinatorClient`."""
+        return magritte_coordinator.MagritteCoordinatorClient(self)
+
+    @cached_property
+    def scheduler(self) -> scheduler.SchedulerClient:
+        """Returns :py:class:`foundry_dev_tools.clients.scheduler.SchedulerClient`."""
+        return scheduler.SchedulerClient(self)
 
     @cached_property
     def metadata(self) -> metadata.MetadataClient:

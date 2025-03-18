@@ -68,6 +68,15 @@ OrganizationRid = str
 ProjectRid = str
 """A compass project root folder resource identifier."""
 
+SourceRid = str
+"""A magritte source resource identifier."""
+
+TableRid = str
+"""A virtual table resource identifier."""
+
+NetworkEgressPolicyRid = str
+"""A virtual table resource identifier."""
+
 # TODO further typing?
 FoundrySchema = dict[str, Any]
 
@@ -166,8 +175,11 @@ TokenType = Literal["USER_GENERATED"]
 UserId = str
 """An identifier for an user on foundry."""
 
+CodeResourceType = Literal["stemmaRepository", "computeModule", "eddiePipeline"]
+"""Code Resource type."""
+
 PrincipalTypes = Literal["USER", "GROUP"]
-"""A type for a principal on foundry."""
+"""A type for a principle on foundry."""
 
 
 class Attribution(TypedDict):
